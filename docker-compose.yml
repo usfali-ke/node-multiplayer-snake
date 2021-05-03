@@ -1,7 +1,7 @@
 version: '2'
 services:
   snake:
-    image: 'alienke/snake'
+    image: 'alienke/snakey'
     environment:
       - "PORT:3000"
     ports:
