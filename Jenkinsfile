@@ -1,4 +1,4 @@
-node ('ubuntu-devEnv'){  
+node ('dev-agent'){  
     def app
     stage('Cloning Git') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -12,10 +12,10 @@ node ('ubuntu-devEnv'){
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
-        app = docker.build("alienke/snakey")
+        app = docker.build("alienke/snake")
     }
     stage('Post-to-dockerhub') {  
-        docker.withRegistry('https://registry.hub.docker.com', 'b09db962-d0b2-4318-913e-827a9165d80e') {
+        docker.withRegistry('https://registry.hub.docker.com', 'DOCKER-HUB') {
             app.push("latest")
         			}
          }
